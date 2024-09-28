@@ -3,11 +3,12 @@ const router = express.Router();
 
 const {registerUser,getUser,getUserById,updateUser, deleteUser} = require('../UserController/UserController')
 
-router.route('/createUser')
-      .post(registerUser)
-
 router.route('/')
       .get(getUser)
+
+
+router.route('/createUser')
+      .post(registerUser)
 
 router.route('/getUserById/:id')
       .get(getUserById)

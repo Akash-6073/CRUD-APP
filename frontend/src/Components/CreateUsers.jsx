@@ -7,8 +7,10 @@ import { Navigate, useNavigate } from 'react-router-dom'
 import 'react-toastify/dist/ReactToastify.css';
 const CreateUsers = () => {
   const navigate = useNavigate();
+  const[loading,setLoading] = useState(false)
     const{register,handleSubmit,formState:{errors},setError} = useForm()
     const submit = (data) => {
+      setLoading(true)
       axios.post("http://localhost:4000/createUser", data)
           .then((res) => {
             toast.success('User added successfully!', {
@@ -28,6 +30,7 @@ const CreateUsers = () => {
             console.log("Added Successfully")
           })
           .catch((err) => {
+          setLoading(false)
             if (err.response && err.response.status === 400) { // Assuming 400 for duplicate error
                 setError('email', {
                     type: 'manual',
@@ -78,7 +81,10 @@ const CreateUsers = () => {
         <label htmlFor="email">Email</label>
         <input 
             type="email" 
-            {...register("email", { required: true })} 
+            {...register("email", { required:{
+              value:true,
+              message:"Email is required"
+            }})} 
             className={errors.email ? 'input-error' : ''}
         />
         {errors.email && <p className='error-message'>{errors.email.message}</p>}
@@ -91,7 +97,7 @@ const CreateUsers = () => {
         />
         {errors.age && <p className='error-message'>Age is required</p>}
 
-        <input type="submit" value="Submit" />
+        <input type="submit" disabled={loading} className={loading?'dible':""}  value="Submit" />
     </form>
 </div>
 </>
