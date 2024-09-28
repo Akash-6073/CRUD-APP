@@ -16,7 +16,8 @@ const UpdateUsers = () => {
   } = useForm();
   const { id } = useParams();
   const navigate = useNavigate();
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
+  const [subloading, setSubLoading] = useState(false);
   useEffect(() => {
     axios
       .get("https://crud-app-1-aklu.onrender.com/getUserById/" + id)
@@ -35,6 +36,7 @@ const UpdateUsers = () => {
 
   const submit = (data) => {
     console.log("Hi");
+    setSubLoading(true)
     axios
       .put("https://crud-app-1-aklu.onrender.com/updateUser/" + id, data)
       .then((users) => {
@@ -54,6 +56,8 @@ const UpdateUsers = () => {
         }, 1200);
       })
       .catch((err) => {
+      setSubLoading(false)
+
         if (err.response && err.response.status === 400) {
           // Assuming 400 for duplicate error
           setError("email", {
@@ -131,7 +135,7 @@ const UpdateUsers = () => {
               />
               {errors.age && <p className="error-message">Age is required</p>}
 
-              <input type="submit" value="Submit" />
+              <input type="submit" disabled={subloading} className={subloading?'dible':""} value={subloading?"Updating...":"Update"} />
             </form>
           </div>
         </>

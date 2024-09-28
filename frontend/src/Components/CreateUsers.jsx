@@ -27,7 +27,6 @@ const CreateUsers = () => {
               setTimeout(()=>{
                 navigate('/')
               },1200)
-            console.log("Added Successfully")
           })
           .catch((err) => {
           setLoading(false)
@@ -37,7 +36,17 @@ const CreateUsers = () => {
                     message: err.response.data.message || 'Email is already taken'
                 });
             } else {
-                console.log(err);
+              toast.error(err, {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+                transition: Bounce,
+                });
             }
         });
   }
@@ -97,7 +106,7 @@ const CreateUsers = () => {
         />
         {errors.age && <p className='error-message'>Age is required</p>}
 
-        <input type="submit" disabled={loading} className={loading?'dible':""}  value="Submit" />
+        <input type="submit" disabled={loading} className={loading?'dible':""}  value={loading?"Submitting...":"Submit"} />
     </form>
 </div>
 </>

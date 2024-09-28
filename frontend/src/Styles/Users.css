@@ -12,6 +12,7 @@
     width: 100%;
     display: flex;
     justify-content: center;
+    margin: 15px 0;
 }
 /* Center the table within the wrapper */
 .table-wrapper {
@@ -24,43 +25,74 @@
 }
 
 /* Styling NavLink containing the Add+ button */
-.add_btn{
+.add_btn {
     margin: 20px;
-}
-
-.add_btn{
-    background-color: #28a745; /* Green background */
+    position: relative;
+    padding: 12px 24px;
+    font-size: 18px;
+    font-weight: bold;
     color: white;
-    font-size: 1rem;
-    padding: 10px 20px;
-    border-radius: 5px;
+    background: linear-gradient(45deg, #4CAF50, #4CAF50, #4CAF50, #4CAF50);
+    background-size: 400% 400%;
     border: none;
+    border-radius: 8px;
     cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    text-decoration: none; /* Remove underline from link */
-}
-
-.add_btn:hover {
-    background-color: #218838; /* Darker green on hover */
-    transform: scale(1.05); /* Slight scale effect on hover */
-}
-
-.add_btn:focus {
+    transition: background-position 1s ease, box-shadow 0.4s ease;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+  }
+  
+  .add_btn:hover {
+    background-position: 100% 0;
+    box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.3);
+  }
+  
+  .add_btn:focus {
     outline: none;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); /* Subtle focus effect */
-}
+  }
+  
+  .add_btn::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, #4CAF50, #4CAF50, #4CAF50, #4CAF50);
+    background-size: 400% 400%;
+    z-index: -1;
+    transition: opacity 0.5s ease;
+    opacity: 0.5;
+    filter: blur(6px);
+  }
+  
+  .add_btn:hover::before {
+    opacity: 1;
+    animation: color-shift 3s linear infinite;
+  }
+  
+  @keyframes color-shift {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+  
 
 .no-users {
     font-family: 'Poppins', sans-serif; /* Modern font */
     font-size: 2rem; /* Large font size */
     font-weight: bold; /* Bold text */
     text-align: center; /* Center text */
-    color: #555; /* Soft color */
+    color: red; /* Soft color */
     letter-spacing: 1px; /* Spacing between letters */
-    margin: 50px 0; /* Spacing from other elements */
+    margin: 25px 0; /* Spacing from other elements */
     padding: 20px; /* Padding around the text */
     background: linear-gradient(135deg, #f9f9f9 0%, #e2e2e2 100%); /* Soft gradient */
-    border-radius: 10px; /* Rounded corners */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Soft shadow */
     position: relative;
   }
@@ -93,6 +125,8 @@
 /* Table headers */
 .styled-table thead {
     background-color: #4CAF50;
+    /* background: linear-gradient(45deg, #6bff6b, #6bff6b, #6bff6b, #6bff6b); */
+
     color: #fff;
     text-align: left;
     font-weight: bold;
@@ -132,6 +166,14 @@
 .styled-table tbody td .action-btn:hover {
     background-color: #218838;
 }
+
+
+
+.table-wrapper {
+    max-width: 100%;
+    overflow-x: auto;
+  }
+ 
 
 /* Media queries for smaller screens */
 @media (max-width: 768px) {
