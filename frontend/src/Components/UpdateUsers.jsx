@@ -36,7 +36,7 @@ const UpdateUsers = () => {
   const submit = (data) => {
     console.log("Hi");
     axios
-      .put("http://localhost:4000/updateUser/" + id, data)
+      .put("https://crud-app-1-aklu.onrender.com/updateUser/" + id, data)
       .then((users) => {
         toast.success("Updated successfully!", {
           position: "bottom-right",

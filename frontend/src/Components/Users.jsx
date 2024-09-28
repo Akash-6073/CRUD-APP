@@ -27,7 +27,7 @@ const Users = () => {
     );
     if (confirmDelete) {
       axios
-        .delete("http://localhost:4000/deleteUser/" + id)
+        .delete("https://crud-app-1-aklu.onrender.com/deleteUser/" + id)
         .then(() => {
           toast.success("Deleted successfully!", {
             position: "bottom-right",
