@@ -1,0 +1,126 @@
+/* Container to center the form */
+.container {
+    height: 100vh; /* Full height to center vertically */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f4f7f6;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Styling the form */
+form {
+    width: 400px;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+}
+
+/* Form header */
+.container div {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #333;
+}
+
+/* Styling form labels */
+form label {
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 6px;
+    color: #333;
+}
+
+/* Styling input fields */
+/* Correctly target multiple input types */
+form input[type="text"], 
+form input[type="email"], 
+form input[type="number"] {
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    color: #333;
+    transition: border-color 0.3s ease;
+}
+
+/* Add a focus effect to the input fields */
+form input[type="text"]:focus,
+form input[type="email"]:focus,
+form input[type="number"]:focus {
+    border-color: #4CAF50;
+    outline: none;
+}
+
+
+/* Styling the submit button */
+form input[type="submit"],
+form input[type="button"] {
+    padding: 12px;
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+form input[type="submit"]:hover, 
+form input[type="button"]:hover {
+    background-color: #218838;
+    transform: scale(1.05);
+}
+
+/* Error message styling */
+.error-message {
+    color: #ff3860; /* Soft red for error */
+    font-size: 0.9rem; /* Slightly smaller font size */
+    margin: 5px 0 15px 0;
+    font-weight: bold; /* Make it bold */
+    background-color: #ffe5e5; /* Light red background */
+    padding: 8px;
+    border-radius: 5px; /* Rounded corners */
+    border: 1px solid #ff3860;
+    width: fit-content; /* Adjust width to content */
+}
+
+/* Input fields with errors */
+.input-error {
+    border-color: #ff3860; /* Highlight border with red */
+    background-color: #fff5f5; /* Slightly shaded background */
+}
+
+/* Styling for form container */
+
+
+/* Submit button styling */
+input[type="submit"], 
+input[type="button"] {
+    background-color: #4caf50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+input[type="submit"]:hover,
+input[type="button"]:hover {
+    background-color: #45a049;
+}
+
+
+/* Responsive form for smaller screens */
+@media (max-width: 480px) {
+    form {
+        width: 90%;
+    }
+}
