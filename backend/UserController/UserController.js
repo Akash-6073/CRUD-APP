@@ -19,6 +19,7 @@ const registerUser = async(req,res)=>{
 }
 
 const getUser = (req,res)=>{
+    res.json("hello");
     userModel.find()
             .then((users)=>res.json(users))
             .catch((err)=>res.send(err))
