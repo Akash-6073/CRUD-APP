@@ -8,7 +8,7 @@ const DeleteUser = () => {
   const {id} = useParams();
   const navigate = useNavigate()
   useEffect(()=>{
-    axios.get('http://localhost:4000/getUserById/'+id)
+    axios.get('https://crud-app-1-aklu.onrender.com/getUserById/'+id)
           .then((users)=>{
               setValue('name',users.data.name)
               setValue('email',users.data.email)

@@ -12,7 +12,7 @@ const Users = () => {
   useEffect(() => {
     setLen(users.length);
     axios
-      .get("http://localhost:4000")
+      .get("https://crud-app-1-aklu.onrender.com/")
       .then((user) => {
         setUsers(user.data);
         setLen(1);

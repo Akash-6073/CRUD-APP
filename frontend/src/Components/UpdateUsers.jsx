@@ -19,7 +19,7 @@ const UpdateUsers = () => {
   const [loading, setLoading] = useState(true);
   useEffect(() => {
     axios
-      .get("http://localhost:4000/getUserById/" + id)
+      .get("https://crud-app-1-aklu.onrender.com/getUserById/" + id)
       .then((user) => {
         setValue("name", user.data.name);
         setValue("email", user.data.email);
