@@ -95,15 +95,17 @@ const Users = () => {
                   </tr>
                 </thead>
                   {
-                    users.length==0 ? <tr>
-                    <td colSpan="4" className="no-users">
-                      No users found
-                    </td>
-                  </tr>:
-                    users.map((users, index) => {
+                    users.length==0 ? <thead>
+                    <tr>
+                      <td colSpan="4" className="no-users">
+                        No users found
+                      </td>
+                    </tr>
+                  </thead>:
+                    users.map((users) => {
                       return (
-                        <tbody>
-                        <tr key={users._id}>
+                        <tbody key={users._id}>
+                        <tr >
                           <td>{users.name}</td>
                           <td>{users.email}</td>
                           <td>{users.age}</td>
