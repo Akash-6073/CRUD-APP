@@ -8,7 +8,7 @@ const DeleteUser = () => {
   const {id} = useParams();
   const navigate = useNavigate()
   useEffect(()=>{
-    axios.get('https://crud-app-1-aklu.onrender.com/getUserById/'+id)
+    axios.get('https://crud-app-jet-nine.vercel.app/getUserById/'+id)
           .then((users)=>{
               setValue('name',users.data.name)
               setValue('email',users.data.email)
@@ -19,7 +19,7 @@ const DeleteUser = () => {
   const submit = () => {
     const confirmDelete = window.confirm("Are you sure you want to delete this user?");
     if (confirmDelete) {
-      axios.delete('http://localhost:4000/deleteUser/' + id)
+      axios.delete('https://crud-app-jet-nine.vercel.app/deleteUser/' + id)
         .then(() => {
           navigate("/");
         })

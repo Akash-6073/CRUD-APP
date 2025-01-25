@@ -15,7 +15,7 @@ const Users = () => {
   useEffect(() => {
     
     axios
-      .get("https://crud-app-1-aklu.onrender.com/")
+      .get("https://crud-app-jet-nine.vercel.app/")
       .then((user) => {
         setUsers(user.data);
         if(!flag)
@@ -50,7 +50,7 @@ const Users = () => {
       setFlag(1);
       setLoading(true)
       axios
-        .delete("https://crud-app-1-aklu.onrender.com/deleteUser/" + id)
+        .delete("https://crud-app-jet-nine.vercel.app/deleteUser/" + id)
         .then((users) => {
           setDelName(users.data.name);
          setFlag(0);

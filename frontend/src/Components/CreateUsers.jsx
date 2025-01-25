@@ -11,7 +11,7 @@ const CreateUsers = () => {
     const{register,handleSubmit,formState:{errors},setError} = useForm()
     const submit = (data) => {
       setLoading(true)
-      axios.post("https://crud-app-1-aklu.onrender.com/createUser", data)
+      axios.post("https://crud-app-jet-nine.vercel.app/createUser", data)
           .then((res) => {
             toast.success('User added successfully!', {
               position: "bottom-right",

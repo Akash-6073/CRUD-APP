@@ -20,7 +20,7 @@ const UpdateUsers = () => {
   const [subloading, setSubLoading] = useState(false);
   useEffect(() => {
     axios
-      .get("https://crud-app-1-aklu.onrender.com/getUserById/" + id)
+      .get("https://crud-app-jet-nine.vercel.app/getUserById/" + id)
       .then((user) => {
         setValue("name", user.data.name);
         setValue("email", user.data.email);
@@ -38,7 +38,7 @@ const UpdateUsers = () => {
     console.log("Hi");
     setSubLoading(true)
     axios
-      .put("https://crud-app-1-aklu.onrender.com/updateUser/" + id, data)
+      .put("https://crud-app-jet-nine.vercel.app/updateUser/" + id, data)
       .then((users) => {
         toast.success("Updated successfully!", {
           position: "bottom-right",
