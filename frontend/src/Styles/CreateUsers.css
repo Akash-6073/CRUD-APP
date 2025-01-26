@@ -1,6 +1,6 @@
 /* Container to center the form */
 .container {
-    height: 100vh; /* Full height to center vertically */
+    min-height: 100vh; /* Full height to center vertically */
     display: flex;
     justify-content: center;
     align-items: center;
